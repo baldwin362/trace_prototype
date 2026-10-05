@@ -1,0 +1,23 @@
+{
+  "lookup_strategy": "prefix",
+  "confidence": "high",
+  "entries": {
+    "webflow": "Webflow",
+    "wordpress": "WordPress",
+    "gatsby": "Gatsby",
+    "hugo": "Hugo",
+    "drupal": "Drupal",
+    "wix.com": "Wix",
+    "squarespace": "Squarespace",
+    "ghost": "Ghost",
+    "docusaurus": "Docusaurus",
+    "joomla": "Joomla",
+    "hubspot": "HubSpot",
+    "contentful": "Contentful",
+    "framer": "Framer",
+    "astro": "Astro",
+    "nuxt": "Nuxt",
+    "elementor": "Elementor",
+    "shopify": "Shopify"
+  }
+}

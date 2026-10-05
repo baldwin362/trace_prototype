@@ -1,0 +1,24 @@
+{
+  "lookup_strategy": "suffix",
+  "confidence": "high",
+  "entries": {
+    "myshopify.com": "Shopify",
+    "hubspotpagebuilder.com": "HubSpot",
+    "hs-sites.com": "HubSpot",
+    "webflow.io": "Webflow",
+    "notion.site": "Notion",
+    "wixsite.com": "Wix",
+    "squarespace.com": "Squarespace",
+    "netlify.app": "Netlify",
+    "vercel.app": "Vercel",
+    "zendesk.com": "Zendesk",
+    "gitbook.io": "GitBook",
+    "framer.website": "Framer",
+    "framer.app": "Framer",
+    "unbouncepages.com": "Unbounce",
+    "herokuapp.com": "Heroku",
+    "github.io": "GitHub Pages",
+    "cloudfront.net": "AWS CloudFront",
+    "azurewebsites.net": "Microsoft Azure"
+  }
+}

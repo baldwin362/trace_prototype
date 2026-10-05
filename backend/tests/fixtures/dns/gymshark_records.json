@@ -1,0 +1,73 @@
+{
+  "A": [
+    "23.227.38.65"
+  ],
+  "NS": [
+    "ns-947.awsdns-54.net.",
+    "ns-1444.awsdns-52.org.",
+    "ns-1622.awsdns-10.co.uk.",
+    "ns-294.awsdns-36.com."
+  ],
+  "MX": [
+    "10 mx07-005a6901.pphosted.com.",
+    "10 mx08-005a6901.pphosted.com."
+  ],
+  "TXT": [
+    "42b&VLSrCJnJP&KsYaOmTUc*LsVLfnE#BLXG!Ucy5p^L!MrtS&LRQ0TA7duOO$ZS5Rtg@EO!aa%FXmY25@muSng2hAV%AfCK9BL",
+    "6QaKKcNuHGb9rsNTLJD4ULGC3TLv1t6TRUw94i5cN5c=",
+    "768A5D177E",
+    "MS=ms54108504",
+    "ZOOM_verify_GCmrKqPkS1mEVoY35z5rIQ",
+    "access-domain-verification=a9821675dce864a92fed1a936a9d852b3f8dd132d7dfc44d17f11ab742fd45c4",
+    "adobe-idp-site-verification=6f9c128b7de6d610f59b8e09d0c6e17bb8c2c358c79ec9dfa0f8ff7e58e73a22",
+    "adobe-sign-verification=9196465efaa198d57b080529d28ecda7",
+    "anthropic-domain-verification-74qaph=FnCteEsONVLuyjhINanwtbu5C",
+    "apple-domain-verification=2iCba3NvREeEGLrD",
+    "apple-domain-verification=JWo0Djhy8Jy0iu_utt8sIu6mlQfg-5DfqEETTT3nqbw",
+    "asv=75d3299564659dee535674ac5ec07e86",
+    "asv=7639505748801899d551912ff9e239d4",
+    "asv=fc6ee695af8972134c00b0492454cd0a",
+    "atlassian-domain-verification=T0oWTcuY8b8iYmfhPqFYyFoPGkxmQpFBjKARY0pVpnDUYfjnqsBbywHQ0L+VsEv2",
+    "bv-domain-verification=1edfa967adb53ae2e3fc6f8c36a88ae4d33c6cba129a9c16d5bc64bd0dab69e2",
+    "fabric_verify_gymshark",
+    "facebook-domain-verification=srgiv2xr8n7xzcmhf8gc0orab8rtnp",
+    "figma-domain-verification=a4133d2b7c4ac176c0d56aaec43c8e904a85d74e67f8700dc2506c88f4a8ae82-1790691390",
+    "globalsign-domain-verification=4xTYBen8n6gZOKJejIjAnOmlkExelhHvyzXthBgKqs",
+    "google-site-verification=2JmLjOtnXSgYTSKyIGQTHMHBGpa22zJ825w-hTOmqHE",
+    "google-site-verification=B3tDbKfzDdQeY1e4xB-sZF18_TR3jIqXLgzYBQ-ukPQ",
+    "google-site-verification=N6DjWtF6eBrBSqctUyDb2-kL614YNLYvRvM824heRI0",
+    "google-site-verification=UVZ1Nc8NFiwayK-khMN5HKaekok8xGL9dCAOBWYTNt4",
+    "h1-domain-verification=W7p2RaCvGm3onVNmcc7p4SRKTiKKKgY7ZmhMyvrnWtqhvjvG",
+    "jamf-site-verification=XbthS_NS5m1qdusP6goeLg",
+    "mixpanel-domain-verify=6797d266-7add-4b89-a2ce-1b9bacafd40b",
+    "onetrust-domain-verification=4ccea19831264c1f958fae84cc296bfa",
+    "openai-domain-verification=dv-VLy9cjd7DZMF3OxjipLh0mHt",
+    "storyteq-domain-verification-p52694=gnWDUlpzQRivqGxcSSVEionWe",
+    "tqvhgfkng3brbnz8vzt48k2ghlrzyln9",
+    "v=spf1 include:%{ir}.%{v}.%{d}.spf.has.pphosted.com ~all",
+    "wrike-verification=MjA5NDAyMjo3Mjg1NzU4ODJjZTg5MDI2OTY0MThjMjM4ZmMxM2U2YmM4MjQ5NGYxZjI0NTRkNjRiNjEwMDQ1ODliMDNkNzEx"
+  ],
+  "CNAME": {
+    "www.gymshark.com": [
+      "ingress.olympus.gymsharkapps.io."
+    ],
+    "support.gymshark.com": [
+      "support.olympus.gymsharkapps.io."
+    ],
+    "go.gymshark.com": [
+      "go.shop-production.gymsharkapps.io."
+    ],
+    "email.gymshark.com": [
+      "email.secureserver.net."
+    ],
+    "autodiscover.gymshark.com": [
+      "autodiscover.outlook.com."
+    ],
+    "cdn.gymshark.com": [
+      "web-cdn.olympus.gymsharkapps.io."
+    ],
+    "assets.gymshark.com": [
+      "assets.product-engineering.gymsharkapps.io."
+    ]
+  }
+}

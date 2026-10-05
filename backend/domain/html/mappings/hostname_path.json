@@ -1,0 +1,17 @@
+{
+  "lookup_strategy": "prefix",
+  "confidence": "medium",
+  "entries": {
+    "www.googletagmanager.com|/gtm.js": "Google Tag Manager",
+    "www.googletagmanager.com|/ns.html": "Google Tag Manager",
+    "www.googletagmanager.com|/gtag/js": "Google Analytics 4",
+    "www.facebook.com|/tr": "Meta Pixel",
+    "connect.facebook.net|/en_US/fbevents.js": "Meta Pixel",
+    "connect.facebook.net|/signals/": "Meta Pixel",
+    "connect.facebook.net|/en_US/sdk.js": "Facebook SDK",
+    "www.google-analytics.com|/analytics.js": "Google Analytics",
+    "www.google-analytics.com|/collect": "Google Analytics",
+    "www.google.com|/recaptcha": "Google reCAPTCHA",
+    "px.ads.linkedin.com|/collect": "LinkedIn Insight Tag"
+  }
+}

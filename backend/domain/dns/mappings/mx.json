@@ -1,0 +1,25 @@
+{
+  "lookup_strategy": "suffix",
+  "confidence": "high",
+  "entries": {
+    "aspmx.l.google.com": "Google Workspace",
+    "googlemail.com": "Google Workspace",
+    "smtp.google.com": "Google Workspace",
+    "mail.protection.outlook.com": "Microsoft 365",
+    "amazonses.com": "Amazon SES",
+    "inbound-smtp.us-east-1.amazonaws.com": "Amazon SES",
+    "inbound-smtp.us-west-2.amazonaws.com": "Amazon SES",
+    "inbound-smtp.eu-west-1.amazonaws.com": "Amazon SES",
+    "mimecast.com": "Mimecast",
+    "pphosted.com": "Proofpoint",
+    "ppe-hosted.com": "Proofpoint",
+    "mailgun.org": "Mailgun",
+    "mx.zoho.com": "Zoho Mail",
+    "mx.zoho.eu": "Zoho Mail",
+    "messagingengine.com": "Fastmail",
+    "barracudanetworks.com": "Barracuda",
+    "iphmx.com": "Cisco Secure Email",
+    "ovh.net": "OVHcloud Mail",
+    "protonmail.ch": "Proton Mail"
+  }
+}

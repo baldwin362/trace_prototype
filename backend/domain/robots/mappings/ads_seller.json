@@ -1,0 +1,15 @@
+{
+  "lookup_strategy": "exact",
+  "confidence": "medium",
+  "entries": {
+    "google.com": "Google Ad Manager",
+    "appnexus.com": "Xandr",
+    "rubiconproject.com": "Magnite",
+    "pubmatic.com": "PubMatic",
+    "openx.com": "OpenX",
+    "criteo.com": "Criteo",
+    "amazon-adsystem.com": "Amazon Publisher Services",
+    "indexexchange.com": "Index Exchange",
+    "triplelift.com": "TripleLift"
+  }
+}

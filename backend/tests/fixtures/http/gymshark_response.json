@@ -1,0 +1,278 @@
+[
+  {
+    "url": "https://gymshark.com/",
+    "status_code": 301,
+    "headers": [
+      [
+        "date",
+        "Mon, 05 Oct 2026 15:03:03 GMT"
+      ],
+      [
+        "content-type",
+        "text/html; charset=utf-8"
+      ],
+      [
+        "content-length",
+        "0"
+      ],
+      [
+        "connection",
+        "keep-alive"
+      ],
+      [
+        "x-download-options",
+        "noopen"
+      ],
+      [
+        "location",
+        "https://us.checkout.gymshark.com/"
+      ],
+      [
+        "x-redirect-reason",
+        "primary_domain_redirection"
+      ],
+      [
+        "shopify-complexity-score",
+        "0"
+      ],
+      [
+        "shopify-complexity-score-v2",
+        "17"
+      ],
+      [
+        "set-cookie",
+        "_shopify_essential=:AaEMlvjHAAEA6bFFFVRkio-sDsT0JiD0oqem5TBejrb7O0iqTAg3O7wLWcE5XvLIANoIOn7oNfwaq0vaksMnixUbHs8:; Max-Age=31536000; Path=/; HttpOnly; Secure; Priority=High; SameSite=Lax"
+      ],
+      [
+        "x-frame-options",
+        "DENY"
+      ],
+      [
+        "content-security-policy",
+        "block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;"
+      ],
+      [
+        "strict-transport-security",
+        "max-age=7889238"
+      ],
+      [
+        "x-request-id",
+        "a0ef36ad-59e6-40d2-9b27-e785366717ea-1791212583"
+      ],
+      [
+        "report-to",
+        "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=QpUPhbt3WcgLj3agpOUmf6nVClLMoKqDRxfJNJCuHVsRxh4fVTJ5wSqW%2F9FUNYzd9Gp9vvpbWr9aaIdGGL%2BI9UMSWpJQKPPgvVfWMHhl%2B1gevbf6ugCQrpG%2FwMGMlw%3D%3D\"}]}"
+      ],
+      [
+        "vary",
+        "Accept"
+      ],
+      [
+        "cdn-cache-control",
+        "no-cache, no-store"
+      ],
+      [
+        "cache-control",
+        "private, no-store"
+      ],
+      [
+        "link",
+        "</.well-known/ucp>; rel=\"ucp\"; version=\"2026-08-25\""
+      ],
+      [
+        "powered-by",
+        "Shopify"
+      ],
+      [
+        "server-timing",
+        "processing;dur=20, db;dur=2, db_async;dur=1.068, asn;desc=\"17451\", edge;desc=\"CGK\", country;desc=\"ID\", pageType;desc=\"index\", servedBy;desc=\"h7wp\", requestID;desc=\"a0ef36ad-59e6-40d2-9b27-e785366717ea-1791212583\", _y;desc=\"d5627886-af2e-47d0-897b-af7fd8a5f9a1\", _s;desc=\"9eeb3180-d226-45b5-8932-c6a192ca4d5a\", _cmp;desc=\"3.AMPS_IDBA_f_f_zaAB5mjzRJKFAqViBsuUow\", _cta;desc=\"1\", _ye;desc=\"1822770183\", _se;desc=\"1791214383\""
+      ],
+      [
+        "server",
+        "cloudflare"
+      ],
+      [
+        "cf-cache-status",
+        "DYNAMIC"
+      ],
+      [
+        "alt-svc",
+        "h3=\":443\"; ma=86400"
+      ],
+      [
+        "nel",
+        "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}"
+      ],
+      [
+        "x-content-type-options",
+        "nosniff"
+      ],
+      [
+        "x-xss-protection",
+        "1; mode=block"
+      ],
+      [
+        "x-permitted-cross-domain-policies",
+        "none"
+      ],
+      [
+        "x-dc",
+        "gcp-asia-southeast1,gcp-asia-southeast1,gcp-asia-southeast1"
+      ],
+      [
+        "cf-ray",
+        "a45d4f93faacdf93-CGK"
+      ]
+    ]
+  },
+  {
+    "url": "https://us.checkout.gymshark.com/",
+    "status_code": 200,
+    "headers": [
+      [
+        "date",
+        "Mon, 05 Oct 2026 15:03:03 GMT"
+      ],
+      [
+        "content-type",
+        "text/html; charset=utf-8"
+      ],
+      [
+        "transfer-encoding",
+        "chunked"
+      ],
+      [
+        "connection",
+        "keep-alive"
+      ],
+      [
+        "x-permitted-cross-domain-policies",
+        "none"
+      ],
+      [
+        "cf-cache-status",
+        "DYNAMIC"
+      ],
+      [
+        "set-cookie",
+        "localization=US; path=/; expires=Tue, 05 Oct 2027 15:03:03 GMT; SameSite=Lax"
+      ],
+      [
+        "set-cookie",
+        "cart_currency=USD; path=/; expires=Mon, 19 Oct 2026 15:03:03 GMT; SameSite=Lax"
+      ],
+      [
+        "set-cookie",
+        "_shopify_analytics=:AaEMlvoHAAEA3_Nt4oDPB2ToDJI68FFtvVKtwbfO7KfJr07IqX15MzJZNpR5YCJBfryYPwoTWuw4k5mshPoq7Ly12vY:; Max-Age=31536000; Path=/; HttpOnly; Secure; Priority=High; SameSite=Lax"
+      ],
+      [
+        "set-cookie",
+        "_shopify_marketing=:AaEMlvoHAAEANSbpAyP73bdVZfxnX9ltf4YGnNuOxV5iZbw6LK-LVVqFzwRMlEOjkcP0GlOINR1ZPUa-k4_gNWs3NOE:; Max-Age=31536000; Path=/; HttpOnly; Secure; Priority=High; SameSite=Lax"
+      ],
+      [
+        "link",
+        "<https://cdn.shopify.com>; rel=\"preconnect\", <https://cdn.shopify.com>; rel=\"preconnect\"; crossorigin, <//us.checkout.gymshark.com/cdn/shop/t/354/assets/theme.scss.css?v=117766868859661804651747229563>; as=\"style\"; rel=\"preload\", <https://us.checkout.gymshark.com/cdn/shopifycloud/portable-wallets/latest/accelerated-checkout-backwards-compat.css>; as=\"style\"; rel=\"preload\"; crossorigin, </.well-known/ucp>; rel=\"ucp\"; version=\"2026-08-25\""
+      ],
+      [
+        "speculation-rules",
+        "\"/cdn/shopifycloud/storefront/assets/storefront/storefronts.moderate.specrules-eb468f32.json\""
+      ],
+      [
+        "x-request-id",
+        "f7f5a594-cbe7-4416-a3af-0a8761183c9b-1791212583"
+      ],
+      [
+        "etag",
+        "W/\"page_cache:1566146:IndexController:5c65dab5dbcd257550bc6cc549b0acca:0ec838b0fe6b5cedcd9552ae2ab03e3a\""
+      ],
+      [
+        "nel",
+        "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}"
+      ],
+      [
+        "shopify-complexity-score",
+        "0"
+      ],
+      [
+        "shopify-complexity-score-v2",
+        "46"
+      ],
+      [
+        "x-frame-options",
+        "DENY"
+      ],
+      [
+        "content-security-policy",
+        "block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;"
+      ],
+      [
+        "strict-transport-security",
+        "max-age=7889238"
+      ],
+      [
+        "x-download-options",
+        "noopen"
+      ],
+      [
+        "vary",
+        "Accept"
+      ],
+      [
+        "vary",
+        "accept-encoding"
+      ],
+      [
+        "cdn-cache-control",
+        "no-cache, no-store"
+      ],
+      [
+        "content-language",
+        "en-US"
+      ],
+      [
+        "accept-ch",
+        "Sec-CH-Viewport-Width"
+      ],
+      [
+        "powered-by",
+        "Shopify"
+      ],
+      [
+        "server-timing",
+        "processing;dur=51;desc=\"gc:2\", db;dur=9, db_async;dur=3.273, render;dur=10, asn;desc=\"17451\", edge;desc=\"CGK\", country;desc=\"ID\", theme;desc=\"120703549642\", pageType;desc=\"index\", servedBy;desc=\"lnqh\", requestID;desc=\"f7f5a594-cbe7-4416-a3af-0a8761183c9b-1791212583\", _y;desc=\"fbe94c0d-4256-44cb-ad4b-cbd569d0e65f\", _s;desc=\"54f6d4c6-1734-4a37-9c70-06df2524a4ce\", _cmp;desc=\"3.AMPS_IDBA_f_f_u1jZDpJGQne400TOCF*fEQ\", _cta;desc=\"1\", _ye;desc=\"1822770183\", _se;desc=\"1791214383\", compressionLevel;desc=\"5\", compressionTime;dur=2.118"
+      ],
+      [
+        "x-dc",
+        "gcp-asia-southeast1,gcp-asia-southeast1,gcp-asia-southeast1"
+      ],
+      [
+        "x-xss-protection",
+        "1; mode=block"
+      ],
+      [
+        "alt-svc",
+        "h3=\":443\"; ma=86400"
+      ],
+      [
+        "server",
+        "cloudflare"
+      ],
+      [
+        "report-to",
+        "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=PjgP%2FJXcr0WcoXr5bOKSvgZrPvOiRuA6YtBDiLv6nFw%2FBVu6gr0Dq49HMvP3UuFKPxFWgEkIoCBSMUitUgFDrj%2BhpzcrGV4GoO4pAEfZFc5jsnr91Q%2BhlO71gmVobbGRFPTZVwjusSuVKw%3D%3D\"}]}"
+      ],
+      [
+        "x-content-type-options",
+        "nosniff"
+      ],
+      [
+        "content-encoding",
+        "gzip"
+      ],
+      [
+        "cf-ray",
+        "a45d4f95ee7cdf74-CGK"
+      ]
+    ]
+  }
+]

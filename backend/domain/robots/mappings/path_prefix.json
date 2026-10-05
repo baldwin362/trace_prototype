@@ -1,0 +1,21 @@
+{
+  "lookup_strategy": "prefix",
+  "confidence": "medium",
+  "entries": {
+    "/cdn-cgi/": "Cloudflare",
+    "/hs/": "HubSpot",
+    "/_hcms/": "HubSpot",
+    "/wp-admin/": "WordPress",
+    "/wp-includes/": "WordPress",
+    "/_next/": "Next.js",
+    "/_nuxt/": "Nuxt",
+    "/checkouts/": "Shopify",
+    "/collections/": "Shopify",
+    "/hc/": "Zendesk",
+    "/_api/": "Wix",
+    "/.netlify/": "Netlify",
+    "/node_modules/": null,
+    "/search": null,
+    "/api/": null
+  }
+}

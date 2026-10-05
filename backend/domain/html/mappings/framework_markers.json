@@ -1,0 +1,23 @@
+{
+  "lookup_strategy": "substring",
+  "confidence": "high",
+  "entries": {
+    "id=\"__NEXT_DATA__\"": "Next.js",
+    "/_next/static/": "Next.js",
+    "self.__next_f": "Next.js",
+    "id=\"__nuxt\"": "Nuxt",
+    "/_nuxt/": "Nuxt",
+    "window.__NUXT__": "Nuxt",
+    "id=\"___gatsby\"": "Gatsby",
+    "data-reactroot": "React",
+    "ng-version=": "Angular",
+    "data-svelte-h": "Svelte",
+    "/_astro/": "Astro",
+    "wp-content/": "WordPress",
+    "wp-includes/": "WordPress",
+    "data-shopify": "Shopify",
+    "__remixContext": "Remix",
+    "data-wf-page": "Webflow",
+    "data-wf-site": "Webflow"
+  }
+}

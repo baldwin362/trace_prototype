@@ -1,0 +1,11 @@
+{
+  "lookup_strategy": "suffix",
+  "confidence": "medium",
+  "entries": {
+    "hackerone.com": "HackerOne",
+    "bugcrowd.com": "Bugcrowd",
+    "intigriti.com": "Intigriti",
+    "yeswehack.com": "YesWeHack",
+    "yeswehack.io": "YesWeHack"
+  }
+}

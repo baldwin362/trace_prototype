@@ -1,0 +1,12 @@
+{
+  "lookup_strategy": "exact",
+  "confidence": "medium",
+  "entries": {
+    "/robots.txt": null,
+    "/sitemap.xml": null,
+    "/ads.txt": null,
+    "/.well-known/security.txt": null,
+    "/.well-known/apple-app-site-association": "iOS App",
+    "/.well-known/assetlinks.json": "Android App"
+  }
+}
