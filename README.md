@@ -24,7 +24,8 @@ gymshark.com
 
 ```
 docker build -t trace .
-docker run --rm trace gymshark.com
+docker run -it --rm trace                         # opens a prompt: type domains one after another, "exit" to quit
+docker run --rm trace gymshark.com                # or scan once and exit
 docker run --rm trace --file domains.txt          # the 19 test domains
 docker run --rm -p 8000:8000 --entrypoint uvicorn trace backend.api.main:app --host 0.0.0.0
 ```
