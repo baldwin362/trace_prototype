@@ -24,6 +24,20 @@ class RobotsDetector:
         }
 
     def detect(self, domain: str, extracted_keys: list[ExtractedKey]) -> list[Detection]:
+        """Checks each value from the well-known files against the JSON rule file for its kind.
+
+        Args:
+            domain: the domain being scanned, used in the logs, for example "gymshark.com".
+            extracted_keys: the values made by the parsers. robots.txt paths go to path_prefix.json, ads.txt sellers to
+                ads_seller.json, and so on.
+
+        Returns:
+            Every Detection found. An empty list if no value fits any rule.
+
+        Example:
+            robots_detector.detect("gymshark.com", parse_robots_directives("Disallow: /checkouts/"))
+            # [Detection(technology="Shopify", evidence="Disallow: /checkouts/", source="robots:disallow", confidence="medium")]
+        """
         detections = []
         for extracted_key in extracted_keys:
             matcher = self.matcher_by_source[extracted_key.source]

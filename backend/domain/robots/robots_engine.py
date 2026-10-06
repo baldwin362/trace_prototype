@@ -42,6 +42,21 @@ class RobotsEngine:
         )
 
     async def scan(self, domain: str) -> ScanResult:
+        """Downloads the well-known files of a domain (robots.txt, ads.txt...) and returns the technologies they reveal.
+
+        Args:
+            domain: the domain to scan, for example "gymshark.com".
+
+        Returns:
+            A ScanResult with the detections and the raw files. If no file can be reached,
+            the ScanResult has no detections and one error instead.
+
+        Example:
+            robots_engine = RobotsEngine(WellKnownPathFetcher())
+
+            scan_result = await robots_engine.scan("gymshark.com")
+            scan_result.detections[0]   # Detection(technology="Shopify", evidence="Allow: /collections/account", ...)
+        """
         logger.info("{}  {:<7} engine started", domain, ENGINE_NAME)
         try:
             response_by_path = await self.wellknown_path_fetcher.fetch_paths(domain, self.wellknown_paths)
@@ -73,10 +88,37 @@ class RobotsEngine:
 
 
 def is_readable_file(response: httpx.Response) -> bool:
+    """Tells whether a downloaded file is worth reading.
+
+    Many sites answer a missing file with their homepage, so an HTML page is not counted as the file.
+
+    Args:
+        response: the response for one file, for example /robots.txt.
+
+    Returns:
+        True if the status is 200 and the content is not an HTML page. False otherwise.
+
+    Example:
+        is_readable_file(robots_txt_response)        # True  (200, text/plain)
+        is_readable_file(missing_ads_txt_response)   # False (404)
+    """
     return response.status_code == 200 and "html" not in response.headers.get("content-type", "")
 
 
 def read_text(readable_response_by_path: dict[str, httpx.Response], path: str) -> str:
+    """Returns the content of one downloaded file, or an empty text if it was not downloaded.
+
+    Args:
+        readable_response_by_path: the files worth reading, by path.
+        path: the file wanted, for example "/robots.txt".
+
+    Returns:
+        The content of the file, for example "User-agent: *\\nDisallow: /checkouts/". An empty string if it is missing.
+
+    Example:
+        read_text(readable_response_by_path, "/robots.txt")   # "User-agent: *\\nDisallow: /checkouts/ ..."
+        read_text(readable_response_by_path, "/ads.txt")      # ""
+    """
     if path not in readable_response_by_path:
         return ""
     return readable_response_by_path[path].text

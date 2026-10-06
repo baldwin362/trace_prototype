@@ -8,6 +8,19 @@ REDIRECT_SOURCE = "http:redirect"
 
 
 def extract_redirect_hostnames(response: httpx.Response) -> list[ExtractedKey]:
+    """Returns the hostname of every page the homepage request went through, written the same way as in redirect_hostname.json.
+
+    Args:
+        response: the homepage response, including the redirects it went through.
+
+    Returns:
+        One ExtractedKey per page, in order. The key is the hostname, the raw_value is "redirect: <full url>".
+
+    Example:
+        gymshark.com redirects to us.checkout.gymshark.com, which gives:
+        # [ExtractedKey(key="gymshark.com", raw_value="redirect: https://gymshark.com/", source="http:redirect"),
+        #  ExtractedKey(key="us.checkout.gymshark.com", raw_value="redirect: https://us.checkout.gymshark.com/", source="http:redirect")]
+    """
     extracted_keys = []
     seen_urls = set()
     for hop_response in [*response.history, response]:

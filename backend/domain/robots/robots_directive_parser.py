@@ -11,6 +11,19 @@ SOURCE_BY_DIRECTIVE_NAME = {"disallow": DISALLOW_SOURCE, "allow": ALLOW_SOURCE}
 
 
 def parse_robots_directives(robots_text: str) -> list[ExtractedKey]:
+    """Returns the paths of the Disallow and Allow lines of a robots.txt, written the same way as in path_prefix.json.
+
+    Args:
+        robots_text: the content of the robots.txt file.
+
+    Returns:
+        One ExtractedKey per path. The key is the path, the raw_value is the line unchanged.
+        A path already seen is not repeated.
+
+    Example:
+        parse_robots_directives("User-agent: *\\nDisallow: /checkouts/")
+        # [ExtractedKey(key="/checkouts/", raw_value="Disallow: /checkouts/", source="robots:disallow")]
+    """
     extracted_keys = []
     seen_paths = set()
     for robots_line in robots_text.splitlines():

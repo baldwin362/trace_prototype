@@ -35,6 +35,21 @@ class HttpEngine:
         )
 
     async def scan(self, domain: str) -> ScanResult:
+        """Requests the homepage of a domain and returns the technologies its headers, cookies and redirects reveal.
+
+        Args:
+            domain: the domain to scan, for example "gymshark.com".
+
+        Returns:
+            A ScanResult with the detections and the raw headers. If the site cannot be reached,
+            the ScanResult has no detections and one error instead.
+
+        Example:
+            http_engine = HttpEngine(HttpRequestClient())
+
+            scan_result = await http_engine.scan("gymshark.com")
+            scan_result.detections[0]   # Detection(technology="Shopify", evidence="powered-by: Shopify", ...)
+        """
         logger.info("{}  {:<7} engine started", domain, ENGINE_NAME)
         try:
             response = await self.http_request_client.fetch_homepage(domain)
@@ -57,6 +72,19 @@ class HttpEngine:
 
 
 def describe_redirect_chain(response: httpx.Response) -> list[dict]:
+    """Lists every page the homepage request went through, with its status code and headers, to save as http.json.
+
+    Args:
+        response: the homepage response, including the redirects it went through.
+
+    Returns:
+        One dict per page, in order, with its url, status_code and headers.
+
+    Example:
+        describe_redirect_chain(response)
+        # [{"url": "https://gymshark.com/", "status_code": 301, "headers": [("server", "cloudflare"), ...]},
+        #  {"url": "https://us.checkout.gymshark.com/", "status_code": 200, "headers": [...]}]
+    """
     return [
         {
             "url": str(hop_response.url),

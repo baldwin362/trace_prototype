@@ -11,6 +11,18 @@ INVISIBLE_PARENT_TAG_NAMES = {"script", "style", "noscript", "template"}
 
 
 def is_client_side_rendered(document: BeautifulSoup) -> bool:
+    """Tells whether the page shows almost no text before JavaScript runs.
+
+    Args:
+        document: the parsed page.
+
+    Returns:
+        True if the visible text, outside scripts and styles, is shorter than 500 characters. False otherwise.
+
+    Example:
+        is_client_side_rendered(parse_html_document('<div id="root"></div><script>renderApp()</script>'))   # True
+        is_client_side_rendered(parse_html_document("<p>" + "Free delivery on all orders. " * 30 + "</p>"))  # False
+    """
     visible_text_fragments = [
         text_fragment
         for text_fragment in document.find_all(string=True)

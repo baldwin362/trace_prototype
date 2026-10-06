@@ -33,6 +33,22 @@ class HtmlDetector:
         }
 
     def detect(self, domain: str, extracted_keys: list[ExtractedKey]) -> list[Detection]:
+        """Checks each HTML value against the JSON rule file for its kind.
+
+        Args:
+            domain: the domain being scanned, used in the logs, for example "gymshark.com".
+            extracted_keys: the values made by the extractors. Hostnames go to hostname.json, inline scripts to
+                inline_fingerprints.json, and so on.
+
+        Returns:
+            Every Detection found. An empty list if no value fits any rule.
+
+        Example:
+            script = ExtractedKey(key="fbq('init', '1');", raw_value="fbq('init', '1');", source="html:inline")
+
+            html_detector.detect("gymshark.com", [script])
+            # [Detection(technology="Meta Pixel", evidence="fbq('init'", source="html:inline", confidence="medium")]
+        """
         detections = []
         for extracted_key in extracted_keys:
             matcher = self.matcher_by_source[extracted_key.source]

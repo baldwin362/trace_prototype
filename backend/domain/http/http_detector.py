@@ -21,6 +21,22 @@ class HttpDetector:
         }
 
     def detect(self, domain: str, extracted_keys: list[ExtractedKey]) -> list[Detection]:
+        """Checks each HTTP value against the JSON rule file for its kind.
+
+        Args:
+            domain: the domain being scanned, used in the logs, for example "gymshark.com".
+            extracted_keys: the values made by the extractors. Cookie names go to cookie_name.json, header names to
+                header_name.json, and so on.
+
+        Returns:
+            Every Detection found. An empty list if no value fits any rule.
+
+        Example:
+            cookie = ExtractedKey(key="cart_currency", raw_value="cookie: cart_currency", source="http:cookie")
+
+            http_detector.detect("gymshark.com", [cookie])
+            # [Detection(technology="Shopify", evidence="cookie: cart_currency", source="http:cookie", confidence="high")]
+        """
         detections = []
         for extracted_key in extracted_keys:
             matcher = self.matcher_by_source[extracted_key.source]

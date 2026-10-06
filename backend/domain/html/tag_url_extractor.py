@@ -13,6 +13,19 @@ URL_ATTRIBUTE_BY_TAG_NAME = {"script": "src", "link": "href", "img": "src", "ifr
 
 
 def extract_tag_urls(document: BeautifulSoup) -> list[ExtractedKey]:
+    """Returns the full URLs the page loads in its script, link, img and iframe tags.
+
+    Args:
+        document: the parsed page.
+
+    Returns:
+        One ExtractedKey per URL. The key is the URL starting with https, the raw_value is the URL as written in the page.
+        URLs of the site itself, like "/static/app.js", are left out.
+
+    Example:
+        extract_tag_urls(parse_html_document('<script src="//cdn.shopify.com/app.js"></script><script src="/app.js"></script>'))
+        # [ExtractedKey(key="https://cdn.shopify.com/app.js", raw_value="//cdn.shopify.com/app.js", source="html:tag_url")]
+    """
     extracted_keys = []
     seen_urls = set()
     for tag_name, attribute_name in URL_ATTRIBUTE_BY_TAG_NAME.items():

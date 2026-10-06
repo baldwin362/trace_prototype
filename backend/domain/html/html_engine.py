@@ -38,6 +38,21 @@ class HtmlEngine:
         )
 
     async def scan(self, domain: str) -> ScanResult:
+        """Downloads the homepage of a domain and returns the technologies its HTML reveals.
+
+        Args:
+            domain: the domain to scan, for example "gymshark.com".
+
+        Returns:
+            A ScanResult with the detections, the raw HTML, and whether the page looks built by JavaScript.
+            If the page cannot be downloaded, the ScanResult has no detections and one error instead.
+
+        Example:
+            html_engine = HtmlEngine(HtmlRequestClient())
+
+            scan_result = await html_engine.scan("gymshark.com")
+            scan_result.detections[0]   # Detection(technology="Shopify", evidence="https://cdn.shopify.com/...", ...)
+        """
         logger.info("{}  {:<7} engine started", domain, ENGINE_NAME)
         try:
             raw_html = await self.html_request_client.fetch_homepage_html(domain)

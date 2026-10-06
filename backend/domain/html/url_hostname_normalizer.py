@@ -14,6 +14,20 @@ URL_HOSTNAME_PATH_SOURCE = "html:url_hostname_path"
 
 
 def normalize_url_hostnames(url_keys: list[ExtractedKey]) -> list[ExtractedKey]:
+    """Turns each URL into two values: one for hostname.json, one for hostname_path.json.
+
+    Args:
+        url_keys: the URLs found by extract_tag_urls.
+
+    Returns:
+        Two ExtractedKey per URL. The first key is the hostname, the second is the hostname and path joined by "|".
+        Both have the URL as raw_value. A hostname already seen is not repeated.
+
+    Example:
+        normalize_url_hostnames(extract_tag_urls(parse_html_document('<img src="https://www.facebook.com/tr?id=1">')))
+        # [ExtractedKey(key="www.facebook.com", raw_value="https://www.facebook.com/tr?id=1", source="html:url_hostname"),
+        #  ExtractedKey(key="www.facebook.com|/tr", raw_value="https://www.facebook.com/tr?id=1", source="html:url_hostname_path")]
+    """
     extracted_keys = []
     seen_keys = set()
     for url_key in url_keys:

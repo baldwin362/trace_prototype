@@ -13,6 +13,20 @@ HEADER_VALUE_SOURCE = "http:header_value"
 
 
 def extract_headers(response: httpx.Response) -> list[ExtractedKey]:
+    """Turns every header of the response into two values: one for header_name.json, one for header_value.json.
+
+    Args:
+        response: the homepage response, including the redirects it went through.
+
+    Returns:
+        Two ExtractedKey per header. The first key is the header name, the second is the name and value joined by "|".
+        Both have the header as received as raw_value.
+
+    Example:
+        A response with the header "powered-by: Shopify" gives:
+        # [ExtractedKey(key="powered-by", raw_value="powered-by: Shopify", source="http:header_name"),
+        #  ExtractedKey(key="powered-by|shopify", raw_value="powered-by: Shopify", source="http:header_value")]
+    """
     extracted_keys = []
     seen_raw_headers = set()
     for hop_response in [*response.history, response]:

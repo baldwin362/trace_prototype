@@ -19,6 +19,27 @@ class HttpRequestClient:
         self.connection_attempts = connection_attempts
 
     async def fetch_homepage(self, domain: str) -> httpx.Response:
+        """Downloads the homepage of a domain, following redirects.
+
+        Args:
+            domain: the domain to request, for example "gymshark.com".
+
+        Returns:
+            The final response. The redirects it went through are in response.history.
+
+        Raises:
+            HttpConnectionFailed: the site could not be reached, even after a second try.
+            HttpTimeout: the site did not answer in time.
+            HttpTooManyRedirects: the site redirected too many times.
+
+        Example:
+            http_request_client = HttpRequestClient()
+
+            response = await http_request_client.fetch_homepage("gymshark.com")
+            response.url                    # "https://us.checkout.gymshark.com/"
+            response.history[0].url         # "https://gymshark.com/"
+            response.headers["powered-by"]  # "Shopify"
+        """
         homepage_url = f"https://{domain}/"
         last_connection_error = None
         for attempt_number in range(1, self.connection_attempts + 1):

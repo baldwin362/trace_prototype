@@ -21,7 +21,19 @@ EngineName = Literal["dns", "http", "html", "robots"]
 
 
 class EntryKeyLookup(Protocol):
-    def find_matching_entry_keys(self, key: str) -> list[str]: ...
+    def find_matching_entry_keys(self, key: str) -> list[str]:
+        """What every lookup must have: a method that takes a value and returns the JSON lines that fit it.
+
+        Args:
+            key: the value found on the website, for example "aspmx.l.google.com".
+
+        Returns:
+            The left side of each JSON line that fits, for example ["aspmx.l.google.com"]. An empty list if none fits.
+
+        Example:
+            ExactLookup, PrefixLookup, SuffixLookup and SubstringScanner all have this method,
+            so the MappingMatcher can use any of them.
+        """
 
 
 LOOKUP_CLASS_BY_STRATEGY = {

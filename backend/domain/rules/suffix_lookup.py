@@ -27,6 +27,16 @@ class SuffixLookup:
             self.add_entry(entry_key)
 
     def add_entry(self, entry_key: str) -> None:
+        """Adds one hostname to the trie, one node per label, starting from the last label.
+
+        Args:
+            entry_key: the hostname to add, for example "ns.cloudflare.com".
+
+        Example:
+            nameserver_lookup = SuffixLookup([])
+            nameserver_lookup.add_entry("ns.cloudflare.com")
+            # root → "com" → "cloudflare" → "ns" (entry_key = "ns.cloudflare.com")
+        """
         current_node = self.root
         for label in reversed(entry_key.split(".")):
             if label not in current_node.children:

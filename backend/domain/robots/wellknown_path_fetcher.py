@@ -20,6 +20,25 @@ class WellKnownPathFetcher:
         self.timeout_seconds = timeout_seconds
 
     async def fetch_paths(self, domain: str, paths: list[str]) -> dict[str, httpx.Response]:
+        """Downloads several files of a domain at the same time, for example its robots.txt and ads.txt.
+
+        Args:
+            domain: the domain to request, for example "gymshark.com".
+            paths: the files to download, for example ["/robots.txt", "/ads.txt"].
+
+        Returns:
+            The response of each file that answered, a 404 included. Files that could not be reached are left out.
+
+        Raises:
+            WellKnownPathUnreachable: not a single file could be reached.
+
+        Example:
+            wellknown_path_fetcher = WellKnownPathFetcher()
+
+            response_by_path = await wellknown_path_fetcher.fetch_paths("gymshark.com", ["/robots.txt", "/ads.txt"])
+            response_by_path["/robots.txt"].status_code   # 200
+            response_by_path["/ads.txt"].status_code      # 404
+        """
         async with httpx.AsyncClient(
             follow_redirects=True,
             timeout=self.timeout_seconds,
@@ -33,6 +52,19 @@ class WellKnownPathFetcher:
         return response_by_path
 
     async def fetch_path(self, http_client: httpx.AsyncClient, domain: str, path: str) -> httpx.Response | None:
+        """Downloads one file of a domain, and returns None instead of failing.
+
+        Args:
+            http_client: the HTTP client shared by all the downloads of fetch_paths.
+            domain: the domain to request, for example "gymshark.com".
+            path: the file to download, for example "/robots.txt".
+
+        Returns:
+            The response, whatever its status code. None if the file could not be reached at all.
+
+        Example:
+            await wellknown_path_fetcher.fetch_path(http_client, "gymshark.com", "/robots.txt")   # <Response [200 OK]>
+        """
         path_url = f"https://{domain}{path}"
         logger.debug("{}  robots  GET {} sent", domain, path_url)
         started_at = time.perf_counter()

@@ -29,6 +29,17 @@ class ScanResponse(BaseModel):
 
     @classmethod
     def from_scan_result(cls, scan_result: ScanResult) -> "ScanResponse":
+        """Turns the scanner's ScanResult into the response the API sends back. The raw data is left out.
+
+        Args:
+            scan_result: the result of the scan.
+
+        Returns:
+            The ScanResponse, with the same domain, detections, errors, scan time and client_side_rendered flag.
+
+        Example:
+            ScanResponse.from_scan_result(scan_result).domain   # "gymshark.com"
+        """
         return cls.model_validate(scan_result.model_dump())
 
 

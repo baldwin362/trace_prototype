@@ -25,7 +25,17 @@ MAXIMUM_EVIDENCE_WIDTH = 140
 
 
 def parse_arguments() -> argparse.Namespace:
-    argument_parser = argparse.ArgumentParser(description="Detect the technologies a company uses from its domain.")
+    """Reads the options typed on the command line.
+
+    Returns:
+        The options: domains, file, json, resolver, save_artifacts, artifacts_dir, log_level and concurrency.
+        Stops the program with an error message if no domain and no --file was given.
+
+    Example:
+        python main.py gymshark.com --json
+        # Namespace(domains=["gymshark.com"], json=True, resolver="1.1.1.1", ...)
+    """
+    argument_parser =argparse.ArgumentParser(description="Detect the technologies a company uses from its domain.")
     argument_parser.add_argument("domains", nargs="*", help="domains to scan, e.g. gymshark.com")
     argument_parser.add_argument("--file", type=Path, help="text file with one domain per line")
     argument_parser.add_argument("--json", action="store_true", help="print one JSON result per line instead of a table")
@@ -41,14 +51,41 @@ def parse_arguments() -> argparse.Namespace:
 
 
 def read_domains(arguments: argparse.Namespace) -> list[str]:
-    domains = list(arguments.domains)
+    """Collects the domains to scan, from the command line and from the --file, if given.
+
+    Args:
+        arguments: the options read by parse_arguments.
+
+    Returns:
+        The domains in lowercase, without empty lines.
+
+    Example:
+        python main.py Gymshark.com --file domains.txt
+        # ["gymshark.com", "zapier.com", "qonto.com", ...]
+    """
+    domains =list(arguments.domains)
     if arguments.file:
         domains.extend(arguments.file.read_text(encoding="utf-8").splitlines())
     return [domain.strip().lower() for domain in domains if domain.strip()]
 
 
 def render_scan_result(scan_result: ScanResult) -> str:
-    output_lines = [scan_result.domain]
+    """Turns a scan result into the table printed in the terminal.
+
+    Args:
+        scan_result: the result of the scan.
+
+    Returns:
+        The domain on the first line, then one line per detection: technology, source, evidence.
+        Errors and the client-side rendering note come last.
+
+    Example:
+        print(render_scan_result(scan_result))
+        # gymshark.com
+        #   Shopify                      http:header_value        powered-by: Shopify
+        #   Shopify                      http:cookie              cookie: cart_currency
+    """
+    output_lines =[scan_result.domain]
     for detection in scan_result.detections:
         single_line_evidence = " ".join(detection.evidence.split())[:MAXIMUM_EVIDENCE_WIDTH]
         output_lines.append(f"  {detection.technology:<28} {detection.source:<24} {single_line_evidence}")
@@ -62,13 +99,37 @@ def render_scan_result(scan_result: ScanResult) -> str:
 
 
 async def scan_domains(domains: list[str], arguments: argparse.Namespace) -> bool:
-    scanner = build_scanner(resolver_address=arguments.resolver)
+    """Scans all the domains, a few at a time, and prints each result as soon as it is ready.
+
+    Args:
+        domains: the domains to scan, for example ["gymshark.com", "qonto.com"].
+        arguments: the options read by parse_arguments (json, save_artifacts, concurrency...).
+
+    Returns:
+        True if every engine failed on every domain, False otherwise.
+
+    Example:
+        await scan_domains(["gymshark.com", "qonto.com"], arguments)
+        # prints each domain's table as soon as its scan finishes, then returns False
+    """
+    scanner =build_scanner(resolver_address=arguments.resolver)
     artifact_paths = ArtifactPaths(arguments.artifacts_dir)
     artifact_writer = ArtifactWriter(artifact_paths)
     result_writer = ResultWriter(artifact_paths)
     concurrency_limit = asyncio.Semaphore(arguments.concurrency)
 
     async def scan_with_concurrency_limit(domain: str) -> ScanResult:
+        """Scans one domain, waiting first if --concurrency domains are already being scanned.
+
+        Args:
+            domain: the domain to scan, for example "gymshark.com".
+
+        Returns:
+            The ScanResult of the domain.
+
+        Example:
+            With --concurrency 5 and 19 domains, the 6th domain waits until one of the first 5 is done.
+        """
         async with concurrency_limit:
             return await scanner.scan(domain)
 
@@ -85,7 +146,15 @@ async def scan_domains(domains: list[str], arguments: argparse.Namespace) -> boo
 
 
 def main() -> int:
-    arguments = parse_arguments()
+    """Runs the command line tool: reads the options, sets up the logs, scans the domains.
+
+    Returns:
+        The exit code: 1 if every engine failed on every domain, 0 otherwise.
+
+    Example:
+        python main.py gymshark.com   # prints the table, exits with 0
+    """
+    arguments =parse_arguments()
     sys.stdout.reconfigure(encoding="utf-8")
     logger.remove()
     logger.add(sys.stderr, level=arguments.log_level.upper(), format="<green>{time:HH:mm:ss.SSS}</green> <level>{level: <7}</level> {message}")

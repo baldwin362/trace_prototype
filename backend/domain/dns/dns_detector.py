@@ -24,6 +24,19 @@ class DnsDetector:
         }
 
     def detect(self, domain: str, extracted_keys: list[ExtractedKey]) -> list[Detection]:
+        """Checks each DNS value against the JSON rule file for its record type.
+
+        Args:
+            domain: the domain being scanned, used in the logs, for example "gymshark.com".
+            extracted_keys: the values made by the normalizers. MX values go to mx.json, NS values to ns.json, and so on.
+
+        Returns:
+            Every Detection found. An empty list if no value fits any rule.
+
+        Example:
+            dns_detector.detect("gymshark.com", normalize_mx_records(["10 aspmx.l.google.com."]))
+            # [Detection(technology="Google Workspace", evidence="10 aspmx.l.google.com.", source="dns:MX", confidence="high")]
+        """
         detections = []
         for extracted_key in extracted_keys:
             matcher = self.matcher_by_source[extracted_key.source]

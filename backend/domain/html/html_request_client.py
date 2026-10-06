@@ -15,6 +15,22 @@ class HtmlRequestClient:
         self.timeout_seconds = timeout_seconds
 
     async def fetch_homepage_html(self, domain: str) -> str:
+        """Downloads the HTML of a domain's homepage, following redirects.
+
+        Args:
+            domain: the domain to request, for example "gymshark.com".
+
+        Returns:
+            The HTML of the page as text.
+
+        Raises:
+            HtmlFetchFailed: the page could not be downloaded.
+
+        Example:
+            html_request_client = HtmlRequestClient()
+
+            await html_request_client.fetch_homepage_html("gymshark.com")   # "<!doctype html><html ...>...</html>"
+        """
         homepage_url = f"https://{domain}/"
         logger.debug("{}  html    GET {} sent", domain, homepage_url)
         started_at = time.perf_counter()
